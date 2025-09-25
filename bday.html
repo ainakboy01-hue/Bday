@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love! - Piyush</title>
+    <style>
+        /* --- General Styles & Typography --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%); /* Soft Pink Gradient */
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 20px; 
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 95%; 
+            animation: fadeIn 1.5s ease-out;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5em; 
+            color: #d81b60;
+            margin-bottom: 0.2em;
+            animation: pulse 2s infinite alternate;
+        }
+
+        h2 {
+            font-size: 1.5em; 
+            color: #880e4f;
+            border-bottom: 2px solid #f8bbd0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1em; 
+            line-height: 1.5;
+        }
+
+        /* --- Custom Button & Animation (General) --- */
+        .gift-button {
+            display: inline-block;
+            padding: 12px 25px; 
+            margin-top: 25px;
+            background-color: #f8bbd0;
+            color: #880e4f;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none; 
+        }
+
+        .gift-button:active { 
+            transform: translateY(1px);
+        }
+        
+        .gift-button:hover {
+            background-color: #d81b60;
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.03); }
+        }
+
+        /* --- Grid Layout for Surprise Buttons --- */
+        .surprise-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 15px; 
+            margin-top: 20px;
+        }
+
+        /* Styling for the Surprise Links/Buttons */
+        .surprise-link {
+            display: block;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s;
+            text-decoration: none;
+            color: #880e4f;
+            font-weight: bold;
+            cursor: pointer; /* Added cursor pointer for non-hyperlinks */
+        }
+        .surprise-link:hover {
+            transform: scale(1.03);
+            background-color: #f8bbd0;
+            color: white;
+        }
+        .surprise-link p {
+            margin: 5px 0 0 0;
+            font-weight: normal;
+            font-size: 0.9em;
+        }
+        .icon {
+            font-size: 1.5em;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        /* --- NEW Surprise Content Boxes --- */
+        .surprise-box {
+            background: #fff3e0; /* Light orange/cream background */
+            border: 2px solid #ff7043; /* Coral border */
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: left;
+            display: none; /* Hidden by default */
+            font-style: italic;
+        }
+        .surprise-box h3 {
+            color: #d81b60;
+            margin-top: 0;
+            border-bottom: 1px dashed #ff7043;
+            padding-bottom: 5px;
+        }
+        .surprise-box p {
+            line-height: 1.6;
+        }
+
+        @media (min-width: 600px) {
+            .surprise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* --- Confetti Animation Canvas --- */
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* --- Hide Content Initially --- */
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+    <div class="container">
+        <div id="intro">
+            <h1>Happy Birthday, My Amazing Kashish!</h1>
+            <p style="font-style: italic; color: #d81b60;">I made a little digital memory box just for you.</p>
+            <button class="gift-button" onclick="showContent()">
+                Open My Love Letter & Celebration!
+            </button>
+        </div>
+
+        <div id="content">
+            <h2>💌 My Birthday Wish for You</h2>
+            <p style="font-size: 1.1em; font-family: 'Times New Roman', serif; margin: 20px 0; color: #880e4f; text-align: left; padding: 0 10px;">
+                My dearest love, happy birthday. Words fall short when I try to explain how grateful I am to have you by my side. You inspire me, you challenge me, and most importantly, you love me unconditionally. You are truly the most exceptional person I have ever met. I celebrate you today and look forward to celebrating a lifetime of birthdays with you. All my love, always.
+            </p>
+            
+            <p style="margin-top: 15px; font-weight: bold;">— Love, Piyush</p>
+
+            <h2>🎁 Your Birthday Surprises!</h2>
+            <p>Click these to unlock your gifts!</p>
+            <div class="surprise-grid">
+                
+                <div class="surprise-link" onclick="showPhotos()">
+                    <span class="icon">📸</span> The Photo Collection!
+                    <p>Click here to see a collage of your cutest pics!</p>
+                </div>
+                
+                <a class="surprise-link" href="https://open.spotify.com/embed/playlist/3Nbi3diqp3uwEIT4wkLmba?utm_source=generator" target="_blank">
+                    <span class="icon">🎵</span> Our Birthday Soundtrack
+                    <p>The songs that tell our story—crank up the volume!</p>
+                </a>
+
+                <div class="surprise-link" onclick="showSecret()">
+                    <span class="icon">✨</span> A Secret Message
+                    <p>A personalized poem/note is waiting for you right now!</p>
+                </div>
+
+                <a class="surprise-link" href="https://wheelofnames.com/ma4-h9j" target="_blank">
+                    <span class="icon">🎡</span> Spin for Your Adventure!
+                    <p>You choose our date night destiny!</p>
+                </a>
+            </div>
+
+            <div id="photo-box" class="surprise-box">
+                <h3>🖼️ Your Cutest Moments!</h3>
+                <p>
+                    I couldn't put the photos *right here* in this code, but I've uploaded a super special, private album just for you! 
+                    <br>
+                    **Tap here:** <a href="https://t.me/Zenitsu1111" target="_blank" style="color: #d81b60; font-weight: bold; text-decoration: none;">Go to Telegram Photo Album (@Zenitsu1111)</a>
+                    <br>
+                    (I had to use Telegram for the actual photos, but at least the button works now!)
+                </p>
+            </div>
+
+            <div id="secret-box" class="surprise-box">
+                <h3>💖 My Secret Note</h3>
+                <p>
+                    My dearest love, happy birthday. Today, I want to celebrate not just the day you were born, but the incredible, kind, and brilliant person you are—the best cutie pie I have ever met. You are the warmth in my mornings, the jumping beat in my heart, and the quiet comfort at the end of every day. With you, every together moment feels like an adventure, and every challenge feels manageable. Thank you for being my strength, my best friend, and the reason I believe in forever. My life didn't truly begin until you were in it. I love you more than words can express.
+                    <br><br>
+                    You are my favorite person in the entire universe! You're the one who still gives me **butterflies**, even when we're just sitting on the couch doing absolutely nothing. I promise to keep annoying you with my love, making you laugh until your stomach hurts, and always being the one who makes your birthday wishes come true. Today, and every day, you are my dream come true.
+                    <br><br>
+                    You are just the Best and I hope you will achieve everything you wanted in life, and then make me enjoy my life with your money! 😁😅
+                </p>
+            </div>
+
+            <h2>🎶 Listen While You Read</h2>
+            <p>Just a little background mood music for your special day.</p>
+            <iframe style="border-radius:12px; margin-top: 15px;" src="https://open.spotify.com/embed/playlist/3Nbi3diqp3uwEIT4wkLmba?utm_source=generator" 
+                width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // --- JavaScript for Interactive Elements ---
+
+        function showContent() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            startConfetti();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function showPhotos() {
+            const box = document.getElementById('photo-box');
+            // Toggle visibility - click once to show, click again to hide
+            box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
+        }
+
+        function showSecret() {
+            const box = document.getElementById('secret-box');
+            // Toggle visibility - click once to show, click again to hide
+            box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
+        }
+
+
+        // --- JavaScript for Super Cute Emoji Confetti Animation ---
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let pieces = [];
+        const PIECES_COUNT = 120; // REDUCED COUNT for performance!
+        
+        // Super cute emojis!
+        const emojis = ['🦄', '🌈', '🌟', '💖', '✨', '🧁', '🌸', '🎀'];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function ConfettiPiece() {
+            this.x = Math.random() * canvas.width;
+            this.y = -Math.random() * canvas.height;
+            this.size = Math.random() * 20 + 25; 
+            // FINAL SPEED: VERY FAST (range 8 to 18)
+            this.speed = Math.random() * 10 + 8; 
+            this.rotation = Math.random() * 360; 
+            this.rotationSpeed = Math.random() * 0.1 - 0.05; 
+            this.emoji = emojis[Math.floor(Math.random() * emojis.length)]; 
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            pieces.forEach((piece, index) => {
+                // Update position
+                piece.y += piece.speed;
+                piece.rotation += piece.rotationSpeed;
+
+                // Draw the emoji
+                ctx.save();
+                ctx.translate(piece.x, piece.y);
+                ctx.rotate(piece.rotation * Math.PI / 180);
+                
+                ctx.font = `${piece.size}px serif`; 
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(piece.emoji, 0, 0); 
+
+                ctx.restore();
+
+                // If piece falls off screen, reset it to the top
+                if (piece.y > canvas.height) {
+                    pieces[index] = new ConfettiPiece();
+                }
+            });
+
+            requestAnimationFrame(update);
+        }
+
+        function startConfetti() {
+            for (let i = 0; i < PIECES_COUNT; i++) {
+                pieces.push(new ConfettiPiece());
+            }
+            update(); 
+        }
+    </script>
+</body>
+</html>
